@@ -110,15 +110,15 @@ BONUS
 
 Better would be to create a convenience method, get_full_name(), which you could use anywhere you wanted the users’ full name:
 
->>> u = User.query.first()
+XX >>> u = User.query.first()
 
->>> u.first_name    # SQLAlchemy attribute
+XXX >>> u.first_name    # SQLAlchemy attribute
 'Jane'
 
->>> u.last_name     # SQLAlchemy attribute
+XXX >>> u.last_name     # SQLAlchemy attribute
 'Smith'
 
->>> u.get_full_name()
+XXX >>> u.get_full_name()
 'Jane Smith'
 
 
