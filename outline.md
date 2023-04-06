@@ -22,7 +22,7 @@ Next, create a skeleton Flask app. You can pattern match from the lecture demo.
 It should be able to import the User model, and create the tables using SQLAlchemy. Make sure you have the FlaskDebugToolbar installed — it’s especially helpful when using SQLAlchemy.
 
 Make a Base Template
-Add a base template with slots for the page title and content. Your other templates should use this.
+XX Add a base template with slots for the page title and content. Your other templates should use this.
 
 You can use Bootstrap for this project, but don’t spend a lot of time worrying about styling — this is not a goal of this exercise.
 
