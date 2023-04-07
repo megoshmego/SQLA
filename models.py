@@ -5,7 +5,7 @@ db = SQLAlchemy()
 class Blog_Users(db.Model):
     """user profile."""
 
-    __tablename__ = 'user'
+    __tablename__ = 'blog_users'
 
     id = db.Column(db.Integer,
                    primary_key=True,
@@ -17,13 +17,12 @@ class Blog_Users(db.Model):
     last_name = db.Column(db.String(50),
                            nullable=False)
     
-    image = db.Column(db.LargeBinary, nullable=True)
+    image_url = db.Column(db.String, nullable=True)
 
     @property
     def full_name(self):
         """full name"""
         return f"{self.first_name} {self.last_name}"
-    
 
     
 
