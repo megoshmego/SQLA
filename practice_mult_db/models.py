@@ -1,11 +1,10 @@
-from flask_sqlalchemy import SQLAlchemy 
+from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
 def connect_db(app):
     db.app = app
     db.init_app(app)
-
 
 class Department(db.Model):
     """Department. A department has many empoloyees"""
@@ -14,10 +13,9 @@ class Department(db.Model):
 
     dept_code = db.Column(db.Text, primary_key=True)
     dept_name = db.Column(db.Text,
-                        nullabble=False,
+                        nullable=False,
                         unique=True)
     phone = db.Column(db.Text)
-
 
 class Employee(db.Model):
     """Employee Model"""
@@ -27,4 +25,4 @@ class Employee(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.Text, nullable=False, unique=True)
     state = db.Column(db.Text, nullable=False, default='CA')
-    
+
