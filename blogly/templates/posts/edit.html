@@ -1,47 +1,53 @@
 {% extends 'base.html' %}
 
-{% block title %}Edit {{ user.full_name }}{% endblock %}
+{% block title %}Edit Post{% endblock %}
 
 {% block content %}
 
-<form method="POST">
+<h1>Edit Post</h1>
+
+<form method="POST" action="/posts/{{ post.id }}/edit">
 
   <div class="form-group row">
-    <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
+    <label for="title" class="col-sm-2 col-form-label">Title</label>
     <div class="col-sm-10">
-      <input type="text"
-             class="form-control"
-             id="first_name"
-             name="first_name"
-             placeholder="first name">
+      <input class="form-control" id="title" name="title" value="{{ post.title }}">
     </div>
   </div>
 
   <div class="form-group row">
-    <label for="last_name" class="col-sm-2 col-form-label">Last Name</label>
+    <label for="content" class="col-sm-2 col-form-label">Post Content</label>
     <div class="col-sm-10">
-      <input type="text"
-             class="form-control"
-             id="last_name"
-             name="last_name"
-             placeholder="last name">
+      <textarea class="form-control"
+                id="content"
+                name="content">{{ post.content }}</textarea>
     </div>
   </div>
 
-  <div class="form-group row">
-    <label for="image_url" class="col-sm-2 col-form-label">Image URL</label>
-    <div class="col-sm-10">
-      <input type="text"
-             class="form-control"
-             id="image_url"
-             name="image_url"
-             placeholder="user image">
+  <div class="form-check">
+    {% for tag in tags %}
+    <div>
+      <input class="form-check-input"
+             type="checkbox"
+             value="{{ tag.id }}"
+             id="tag_{{ tag.id }}"
+             {% if tag in post.tags %}checked{% endif %}
+             name="tags">
+      <label class="form-check-label" for="tag_{{ tag.id }}">
+        {{ tag.name }}
+      </label>
     </div>
+    {% endfor %}
   </div>
 
   <div class="form-group row">
     <div class="ml-auto mr-3">
-      <button type="submit" class="btn btn-success">Add</button>
+      <a href="/users/{{ post.user_id }}" class="btn btn-outline-info">
+        Cancel
+      </a>
+      <button type="submit" class="btn btn-success">
+        Edit
+      </button>
     </div>
   </div>
 
